@@ -4,10 +4,12 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Signout from './pages/Signout'; // Corrected component name
+import Header from './componants/Header';
 
 function App() {
   return (
     <BrowserRouter>
+    <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<Signin />} />
@@ -16,10 +18,11 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         {/* Add a catch-all route for unmatched paths */}
         <Route path="*" element={<div>Page Not Found</div>} />
+        <Route path="/code" element={<div>error</div>}></Route>
       </Routes>
     </BrowserRouter>
-  );
+  ); 
 }
 
-export default App;
+export default App; 
  
