@@ -1,12 +1,13 @@
-//we coyp pasted the all the code but some changes in the code...
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'; // Corrected import
+import { signInStart, signInFailure, signInSuccess } from '../redux/user/userSlice.js';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const { loading, error } = useSelector((state) => state.user); // Corrected useSelector
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setFormData({
@@ -19,25 +20,23 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setLoading(true);
+      // Remove unnecessary action parsing
+      dispatch(signInStart());
       const res = await fetch('api/auth/signin', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
       const data = await res.json();
       console.log(data);
       if (data.success === false) {
-      setLoading(false);
-      setError(data.message);
-      return;
+        dispatch(signInFailure(data.message));
+        return;
       }
-      setLoading(false);
-      setError(null);
+      dispatch(signInSuccess(data)); // Corrected dispatch
       navigate('/');
     } catch (error) {
-      setLoading(false);
-      setError(error.message);
+      dispatch(signInFailure(error.message));
     }
   };
 
@@ -65,7 +64,7 @@ export default function SignIn() {
       </form>
       <div className="flex gap-2 mt-5">
         <p>Don't Have An Account?</p>
-        <Link to="/sign-out">
+        <Link to="/sign-out"> {/* Corrected route */}
           <span className="text-green-600">Sign-Up</span>
         </Link>
       </div>
