@@ -105,6 +105,7 @@
     "fill-range": "^7.0.1",
     "finalhandler": "^1.2.0",
     "find-up": "^5.0.0",
+    "firebase": "^10.10.0",
     "flat-cache": "^3.2.0",
     "flatted": "^3.3.1",
     "for-each": "^0.3.3",
