@@ -12,7 +12,7 @@ mongoose
 .then(() => {
   console.log('connected to Mongoose!');
   }).catch((err)=>{
-    console.log(err);
+     console.log(err);
   });
 
 const app = express();
