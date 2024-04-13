@@ -18,7 +18,11 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         {/* Add a catch-all route for unmatched paths */}
         <Route path="*" element={<div>Page Not Found</div>} />
+<<<<<<< HEAD
         {/* <Route element={<PrivateRouter />} /> */}
+=======
+        <Route element={<PrivateRouter />} />
+>>>>>>> origin/main
         <Route path="/code" element={<div>error</div>}></Route>
       </Routes>
     </BrowserRouter>

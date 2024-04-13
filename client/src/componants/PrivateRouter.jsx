@@ -4,4 +4,8 @@ export default function PrivateRouter() {
   return (
     <div>PrivateRouter</div>
   )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main
