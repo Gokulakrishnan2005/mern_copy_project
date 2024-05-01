@@ -3,7 +3,9 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}", // Adjust paths to your template files
   ],
   theme: {
-    extend: {}, // Add your custom theme configurations here
+    color: {
+      'sanicolor':'#483d8b'
+    },    extend: {}, // Add your custom theme configurations here
   },
   plugins: [], // Add any additional Tailwind plugins you want to use
 };
