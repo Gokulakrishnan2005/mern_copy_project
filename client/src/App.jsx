@@ -6,6 +6,8 @@ import Profile from './pages/Profile';
 import Signout from './pages/Signout'; // Corrected component name
 import Header from './componants/Header';
 import PrivateRouter from './componants/PrivateRouter';
+import CreateListing from './pages/CreateListing';
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
 
         <Route element={<PrivateRouter />}>
         <Route path="/profile" element={<Profile />} />
+        <Route path="/create-listing" element={<CreateListing />} />
         </Route>
       </Routes>
     </BrowserRouter>

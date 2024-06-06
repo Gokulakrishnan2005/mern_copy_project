@@ -47,12 +47,11 @@ const listingSchema = new mongoose.Schema(
       required: true,
     },
     imageUrls: {
-      type: [String], // Ensure this is an array of strings
+      type: Array,
       required: true,
     },
     userRef: {
-      type: mongoose.Schema.Types.ObjectId, // Use ObjectId for referencing users
-      ref: 'User', // Assume you have a User model
+      type: String,
       required: true,
     },
   },
